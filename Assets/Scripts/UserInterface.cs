@@ -20,6 +20,10 @@ public class UserInterface : MonoBehaviour
 		{
 			Application.Quit();
 		}
+        else if(Input.GetKeyDown("escape") && showHighscores == true)
+        {
+            showHighscores = false;
+        }
 		else if(Input.GetKeyDown("escape") && showMenu == false) //If we're on the play state and we press escape, display the menu screen
 		{
 			showMenu = true;
