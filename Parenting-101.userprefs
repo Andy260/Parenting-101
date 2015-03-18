@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Inspector.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Inspector.cs" Line="19" Column="26" />
+      <File FileName="Assets\Scripts\Inspectors\OHSInspector.cs" Line="29" Column="2" />
+      <File FileName="Assets\Scripts\Inspectors\Supervisor.cs" Line="16" Column="17" />
+      <File FileName="Assets\Scripts\Inspectors\WelfareInspector.cs" Line="17" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

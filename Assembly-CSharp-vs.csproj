@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{DC740697-6564-8E08-0217-FE86DF773097}</ProjectGuid>
+	<ProjectGuid>{F7703603-86F4-1855-4D46-FDD0F45C254C}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -48,6 +48,11 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ConveyerObject.cs" />
      <Compile Include="Assets\Scripts\ConveyerSpawn.cs" />
+     <Compile Include="Assets\Scripts\Inspector.cs" />
+     <Compile Include="Assets\Scripts\InspectorSpawner.cs" />
+     <Compile Include="Assets\Scripts\Inspectors\OHSInspector.cs" />
+     <Compile Include="Assets\Scripts\Inspectors\Supervisor.cs" />
+     <Compile Include="Assets\Scripts\Inspectors\WelfareInspector.cs" />
      <Compile Include="Assets\Scripts\UserInterface.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

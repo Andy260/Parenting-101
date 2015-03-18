@@ -59,6 +59,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ConveyerObject.cs" />
     <Compile Include="Assets\Scripts\ConveyerSpawn.cs" />
+    <Compile Include="Assets\Scripts\Inspector.cs" />
+    <Compile Include="Assets\Scripts\InspectorSpawner.cs" />
+    <Compile Include="Assets\Scripts\Inspectors\OHSInspector.cs" />
+    <Compile Include="Assets\Scripts\Inspectors\Supervisor.cs" />
+    <Compile Include="Assets\Scripts\Inspectors\WelfareInspector.cs" />
     <Compile Include="Assets\Scripts\UserInterface.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
