@@ -88,8 +88,14 @@ public class ConveyerObject : MonoBehaviour
         }
         else if (trigger.name == "Steal Trigger")
         {
-            GameObject babyObj = GameObject.Find("Baby");
-            transform.position = babyObj.transform.position;
+            GameObject findBabyObj = GameObject.Find("Baby");
+            Baby babyObj = findBabyObj.GetComponent<Baby>();
+            if (babyObj.CanHold(this))
+            {
+                transform.position = babyObj.transform.position;
+                BoxCollider2D disablePhysics = this.GetComponent<BoxCollider2D>();
+                disablePhysics.enabled = false;
+            }
         }
     }
 

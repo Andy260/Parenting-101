@@ -11,7 +11,7 @@ public class Baby : MonoBehaviour
     public bool dangerousGoods = false;
     bool anyGoods = false;
     bool checkingForHit = false;
-    bool babyGotHit = false;
+    public bool babyGotHit = false;
     uint atentionTick = 0;
     uint secondTick = 60;
     ConveyerObject HoldItem;
@@ -38,6 +38,11 @@ public class Baby : MonoBehaviour
             }
         }
 	}
+
+    public void StopCheckingForBabyHit()
+    {
+        checkingForHit = false;
+    }
 
     public bool CanHold(ConveyerObject HoldItem)
     {
