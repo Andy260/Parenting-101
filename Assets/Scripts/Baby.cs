@@ -39,7 +39,7 @@ public class Baby : MonoBehaviour
         }
 	}
 
-    bool CanHold(ConveyerObject HoldItem)
+    public bool CanHold(ConveyerObject HoldItem)
     {
 
         if (anyGoods)
@@ -48,7 +48,7 @@ public class Baby : MonoBehaviour
         {
             dangerousGoods = HoldItem.isDangerous;
             anyGoods = true;
-            atentionTick = (uint)HoldItem.a_atentionValue;
+            atentionTick = (uint)HoldItem.attentionValue;
             return true;
         }
 

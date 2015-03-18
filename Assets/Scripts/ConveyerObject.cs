@@ -8,9 +8,9 @@ public class ConveyerObject : MonoBehaviour
     Vector3 dragOffset;
     Vector3 screenPoint;
 
-    int attentionValue;
+    public int attentionValue;
 
-    bool isDangerous;
+    public bool isDangerous;
     bool allowMovement;
     bool allowInput;
 
