@@ -25,7 +25,6 @@ public class InspectorSpawner : MonoBehaviour {
 		}
 		else
 		{
-			//Revealed Inspector Sillouhette
 			inspectorSillouhette.SetActive(true);
 		}
 
@@ -40,6 +39,8 @@ public class InspectorSpawner : MonoBehaviour {
 				inspectorSillouhette.SetActive(false);
 				int inspectorIndex = Random.Range(0, possibleInspectors.Length);
 				Instantiate(possibleInspectors[inspectorIndex], inspectorSillouhette.gameObject.transform.position, Quaternion.identity);
+				curTimeUntilSpawn = Random.Range (minTimeToSpawn, maxTimeToSpawn);
+				curTimeUntilReveal = timeBeforeReveal;
 
 			}
 		}

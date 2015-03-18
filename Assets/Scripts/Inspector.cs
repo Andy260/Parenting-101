@@ -2,28 +2,43 @@
 using System.Collections;
 
 public abstract class Inspector : MonoBehaviour {
-	private float timeSpentAssessing = 4.0f;
-	private float timeSpentIdling = 4.0f;
-	private float currentTimeAssessing;
-	private float currentTimeIdling;
+	private float timeToAssess = 4.0f;
+	private float timeToIdle = 4.0f;
+	private bool assessingCompleted = false;
 	// Use this for initialization
 	void Start () 
 	{
-		currentTimeAssessing = timeSpentAssessing;
-		currentTimeIdling = timeSpentIdling;
+
 	}
 
 
 	protected void UpdateTimer()
 	{
-		if(currentTimeAssessing > 0)
+		Debug.Log (timeToAssess);
+		Debug.Log (assessingCompleted);
+		if(timeToAssess > 0 & !assessingCompleted)
 		{
-			timeSpentAssessing -= Time.deltaTime;
+			timeToAssess -= Time.deltaTime;
 		}
 		else
 		{
+			assessingCompleted = true;
 			CompleteAssessment();
 		}
+
+		if(assessingCompleted)
+		{
+			if(timeToIdle > 0)
+			{
+				timeToIdle -= Time.deltaTime;
+			}
+			else
+			{
+				Destroy(gameObject);
+			}
+		}
+
+
 	}
 
 	public abstract void CompleteAssessment();
