@@ -24,7 +24,7 @@ public class OHSInspector : Inspector {
 
 		//Check conveyor belt.
 
-		int babyVolume = GameObject.Find ("Baby").GetComponent<Baby>.loudness;
+		int babyVolume = GameObject.Find ("Baby").GetComponent<Baby>().loudness;
 		if(babyVolume >= babyLoudnessLimit)
 		{
 			babyIsTooLoud = true;

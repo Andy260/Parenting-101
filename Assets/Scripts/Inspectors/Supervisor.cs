@@ -23,7 +23,7 @@ public class Supervisor : Inspector {
 
 		//Check cobjects are in correct boxes.
 
-		int babyVolume = GameObject.Find ("Baby").GetComponent<Baby>.loudness;
+		int babyVolume = GameObject.Find ("Baby").GetComponent<Baby>().loudness;
 		if(babyVolume >= babyLoudnessLimit)
 		{
 			babyIsTooLoud = true;

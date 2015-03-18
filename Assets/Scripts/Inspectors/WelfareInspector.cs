@@ -26,7 +26,7 @@ public class WelfareInspector : Inspector {
 		isPlayerBeingMean = GameObject.Find ("Baby").GetComponent<Baby> ().babyGotHit;
 		GameObject.Find ("Baby").GetComponent<Baby> ().StopCheckingForBabyHit();
 
-		int babyVolume = GameObject.Find ("Baby").GetComponent<Baby>.loudness;
+		int babyVolume = GameObject.Find ("Baby").GetComponent<Baby>().loudness;
 		if(babyVolume >= babyLoudnessLimit)
 		{
 			babyIsTooLoud = true;
