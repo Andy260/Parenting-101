@@ -8,6 +8,9 @@ public class ConveyerObject : MonoBehaviour
     Vector3 dragOffset;
     Vector3 screenPoint;
 
+    int attentionValue;
+
+    bool isDangerous;
     bool allowMovement;
     bool allowInput;
 
@@ -82,6 +85,11 @@ public class ConveyerObject : MonoBehaviour
             {
                 //Decrement Scores
             }
+        }
+        else if (trigger.name == "Steal Trigger")
+        {
+            GameObject babyObj = GameObject.Find("Baby");
+            transform.position = babyObj.transform.position;
         }
     }
 
