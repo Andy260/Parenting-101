@@ -1,11 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Inspector.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Inspectors\WelfareInspector.cs">
     <Files>
-      <File FileName="Assets\Scripts\Inspector.cs" Line="19" Column="26" />
-      <File FileName="Assets\Scripts\Inspectors\OHSInspector.cs" Line="29" Column="2" />
-      <File FileName="Assets\Scripts\Inspectors\Supervisor.cs" Line="16" Column="17" />
-      <File FileName="Assets\Scripts\Inspectors\WelfareInspector.cs" Line="17" Column="3" />
+      <File FileName="Assets\Scripts\ConveyerObject.cs" Line="119" Column="6" />
+      <File FileName="Assets\Scripts\Inspectors\OHSInspector.cs" Line="35" Column="4" />
+      <File FileName="Assets\Scripts\Inspectors\Supervisor.cs" Line="34" Column="4" />
+      <File FileName="Assets\Scripts\Inspectors\WelfareInspector.cs" Line="29" Column="3" />
+      <File FileName="Assets\Scripts\InspectorSpawner.cs" Line="24" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

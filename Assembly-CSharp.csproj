@@ -46,8 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Baby.cs" />
      <Compile Include="Assets\Scripts\ConveyerObject.cs" />
      <Compile Include="Assets\Scripts\ConveyerSpawn.cs" />
+     <Compile Include="Assets\Scripts\Highscores.cs" />
      <Compile Include="Assets\Scripts\Inspector.cs" />
      <Compile Include="Assets\Scripts\InspectorSpawner.cs" />
      <Compile Include="Assets\Scripts\Inspectors\OHSInspector.cs" />
