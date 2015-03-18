@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Parenting-101-james-branch.CSharp", "UnityVS.Parenting-101-james-branch.CSharp.csproj", "{2842E97F-D812-1D48-9DEF-CB7344F4BEEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2842E97F-D812-1D48-9DEF-CB7344F4BEEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2842E97F-D812-1D48-9DEF-CB7344F4BEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2842E97F-D812-1D48-9DEF-CB7344F4BEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2842E97F-D812-1D48-9DEF-CB7344F4BEEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
