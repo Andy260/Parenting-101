@@ -9,12 +9,12 @@ public class Baby : MonoBehaviour
     public int loudness = 0;
     //Is holding a dangerous item
     public bool dangerousGoods = false;
-    bool anyGoods = false;
+    bool anyGoods = false;      
     bool checkingForHit = false;
     public bool babyGotHit = false;
     uint atentionTick = 0;
     uint secondTick = 60;
-    ConveyerObject HoldItem;
+    ConveyerObject CurrentItem;
 	// Use this for initialization
 	void Start () 
     {
@@ -26,6 +26,7 @@ public class Baby : MonoBehaviour
         sadness += 1;
         if (checkingForHit)
             babyGotHit = true;
+        DropGoods();
     }
 	// Update is called once per frame
     public void Update() 
@@ -36,39 +37,57 @@ public class Baby : MonoBehaviour
             {
                 atentionTick -= 1;
             }
+            else
+            {
+                DropGoods();
+                if (sadness > 1)
+                    sadness -= 1;
+            }
+            secondTick = 60;
+        }
+        else
+        {
+            secondTick -= 1;
         }
 	}
-
     public void StopCheckingForBabyHit()
     {
         checkingForHit = false;
     }
-
+    public bool DropGoods()
+    {
+        if (CurrentItem == null)
+            return false;
+        CurrentItem.me.AddComponent<Rigidbody2D>();
+        CurrentItem.me.AddComponent<BoxCollider2D>();
+        dangerousGoods = false;
+        anyGoods = false;
+        CurrentItem.babyMovement = true;
+        return true;
+    }
     public bool CanHold(ConveyerObject HoldItem)
     {
 
         if (anyGoods)
             return false;
-        if (Random.Range(0, 10) < HoldItem.attentionValue)
-        {
+
             dangerousGoods = HoldItem.isDangerous;
             anyGoods = true;
             atentionTick = (uint)HoldItem.attentionValue;
-            return true;
-        }
+            Vector3 offSet = new Vector3(00,0,0);
+            HoldItem.transform.position = (this.transform.position + offSet);
 
-        return false;
+            Rigidbody2D blah = HoldItem.me.GetComponent<Rigidbody2D>();
+            Destroy(blah);
+            BoxCollider2D bloh = HoldItem.me.GetComponent<BoxCollider2D>();
+            Destroy(bloh);
+            CurrentItem = HoldItem;
+            CurrentItem.babyMovement = false;
+            return true;
     }
 
     public void CheckForBabyHit()
     {
         checkingForHit = true; 
-    }
-
-    void GetGoods()
-    {
-        GameObject objectBaby = GameObject.Find("ThePlayer");
-        Baby babyScript = objectBaby.GetComponent<Baby>();
-        transform.position = babyScript.transform.position;
     }
 }

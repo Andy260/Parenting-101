@@ -38,7 +38,7 @@ public class ConveyerSpawn : MonoBehaviour
     void SpawnItem()
     {
         int spriteIndex = (int)Random.Range(0, spriteList.Length);
-
+        
         GameObject newSprite = new GameObject();
 
         SpriteRenderer renderer = newSprite.AddComponent<SpriteRenderer>();
@@ -49,5 +49,16 @@ public class ConveyerSpawn : MonoBehaviour
         newSprite.AddComponent<Rigidbody2D>();
         newSprite.AddComponent<BoxCollider2D>();
         newSprite.GetComponent<ConveyerObject>().objectType = spriteTypes[spriteIndex];
+        newSprite.GetComponent<ConveyerObject>().me = newSprite;
+        if (spriteIndex > 7)
+        {
+            newSprite.GetComponent<ConveyerObject>().isDangerous = true;
+            newSprite.GetComponent<ConveyerObject>().attentionValue = (int)Random.Range(5,10);
+        }
+        else
+        {
+            newSprite.GetComponent<ConveyerObject>().isDangerous = false;
+            newSprite.GetComponent<ConveyerObject>().attentionValue = (int)Random.Range(1, 6);
+        }
     }    
 }

@@ -9,11 +9,11 @@ public class ConveyerObject : MonoBehaviour
     Vector3 screenPoint;
 
     public int attentionValue;
-
+    public GameObject me;
     public bool isDangerous;
     bool allowMovement;
     bool allowInput;
-
+    public bool babyMovement = true;
     bool pressingMouse;
 
     float takeAwayTimer;
@@ -32,7 +32,7 @@ public class ConveyerObject : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (allowMovement)
+        if (allowMovement && babyMovement)
         {
             transform.Translate(new Vector3(-5 * Time.deltaTime, 0, 0), Space.World);
         }
@@ -59,43 +59,21 @@ public class ConveyerObject : MonoBehaviour
         else if (trigger.name == "Object Trigger" || trigger.name == "Object Trigger 1")
         {
             Destroy(this.gameObject);
+            SceneManger.Score += 10;
+            if (!SceneManger.BadItemPacked)
+            {
+                SceneManger.BadItemPacked = this.isDangerous;
+            }
         }
         else if(trigger.name == "Take Trigger")
         {
-            GameObject highscoreObject = GameObject.Find("Highscores");
 
-            if(objectType == ConveyerSpawn.ObjectType.TAKE)
-            {
-                //Increment Scores
-            }
-            else
-            {
-                //Decrement Scores
-            }
         }
         else if (trigger.name == "Give Trigger")
         {
-            GameObject highscoreObject = GameObject.Find("Highscores");
-
-            if (objectType == ConveyerSpawn.ObjectType.GIVE)
-            {
-                //Increment Scores
-            }
-            else
-            {
-                //Decrement Scores
-            }
-        }
-        else if (trigger.name == "Steal Trigger")
-        {
             GameObject findBabyObj = GameObject.Find("Baby");
             Baby babyObj = findBabyObj.GetComponent<Baby>();
-            if (babyObj.CanHold(this))
-            {
-                transform.position = babyObj.transform.position;
-                BoxCollider2D disablePhysics = this.GetComponent<BoxCollider2D>();
-                disablePhysics.enabled = false;
-            }
+            babyObj.CanHold(this);
         }
     }
 
