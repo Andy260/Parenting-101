@@ -1,12 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Inspectors\WelfareInspector.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUIBehaviour.cs">
     <Files>
-      <File FileName="Assets\Scripts\ConveyerObject.cs" Line="119" Column="6" />
-      <File FileName="Assets\Scripts\Inspectors\OHSInspector.cs" Line="35" Column="4" />
-      <File FileName="Assets\Scripts\Inspectors\Supervisor.cs" Line="34" Column="4" />
-      <File FileName="Assets\Scripts\Inspectors\WelfareInspector.cs" Line="29" Column="3" />
-      <File FileName="Assets\Scripts\InspectorSpawner.cs" Line="24" Column="40" />
+      <File FileName="Assets\Scripts\ConveyerObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Inspectors\OHSInspector.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Inspectors\Supervisor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Inspectors\WelfareInspector.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\InspectorSpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GUIBehaviour.cs" Line="31" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
