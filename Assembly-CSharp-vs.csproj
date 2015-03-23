@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\ConveyerObject.cs" />
      <Compile Include="Assets\Scripts\ConveyerSpawn.cs" />
      <Compile Include="Assets\Scripts\GUIBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Hazards.cs" />
      <Compile Include="Assets\Scripts\Highscores.cs" />
      <Compile Include="Assets\Scripts\Inspector.cs" />
      <Compile Include="Assets\Scripts\InspectorSpawner.cs" />
