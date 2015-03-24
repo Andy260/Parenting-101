@@ -20,9 +20,11 @@ public class OHSInspector : Inspector {
 
 	public override void CompleteAssessment()
 	{
-		//Check wires.
+        //Machine smoking check
+        isConveyorSmoking = GameObject.Find("Hazards").GetComponent<Hazards>()._leaverActivated;
 
-		//Check conveyor belt.
+        //Wires check.
+        areWiresHanging = GameObject.Find("Hazards").GetComponent<Hazards>()._wiresActivated;
 
 		int babyVolume = GameObject.Find ("Baby").GetComponent<Baby>().loudness;
 		if(babyVolume >= babyLoudnessLimit)

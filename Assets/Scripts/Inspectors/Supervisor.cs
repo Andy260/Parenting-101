@@ -3,9 +3,8 @@ using System.Collections;
 
 public class Supervisor : Inspector {
 	private bool isQuotaMet = false;
-	private bool areObjectsMisplaced = false;
-	private bool babyIsTooLoud = false;
-	public int babyLoudnessLimit = 6;
+	private bool areObjectsCorrectlySorted = false;
+    private int quota = 0;
 	// Use this for initialization
 	void Start () {
 	
@@ -19,20 +18,35 @@ public class Supervisor : Inspector {
 
 	public override void CompleteAssessment()
 	{
-		//Check wires.
 
-		//Check cobjects are in correct boxes.
+		//TODO: Check objects are in correct boxes.
 
-		int babyVolume = GameObject.Find ("Baby").GetComponent<Baby>().loudness;
-		if(babyVolume >= babyLoudnessLimit)
-		{
-			babyIsTooLoud = true;
-		}
-		else
-		{
-			babyIsTooLoud = false;
-		}
+        //TODO: Check object quota is met.
 
-		//Create score card.
+        GameObject scoreCard = (GameObject)Instantiate(Resources.Load<GameObject>("ScoreCard"), gameObject.transform.position, Quaternion.identity);
+        scoreCard.GetComponent<ScoreCard>().lineText[0].GetComponent<TextMesh>().text = "Objects sorted correctly:";
+        scoreCard.GetComponent<ScoreCard>().lineText[1].GetComponent<TextMesh>().text = "Quota of " + quota.ToString() + " was met:";
+
+        if (areObjectsCorrectlySorted)
+        {
+            //Player succeeded.
+            scoreCard.GetComponent<ScoreCard>().resultText[0].GetComponent<TextMesh>().text = "Completed";
+        }
+        else
+        {
+            //Player loses life.
+            scoreCard.GetComponent<ScoreCard>().resultText[0].GetComponent<TextMesh>().text = "Failed";
+        }
+
+        if (isQuotaMet)
+        {
+            //Player succeeded.
+            scoreCard.GetComponent<ScoreCard>().resultText[1].GetComponent<TextMesh>().text = "Completed";
+        }
+        else
+        {
+            //Player loses life.
+            scoreCard.GetComponent<ScoreCard>().resultText[1].GetComponent<TextMesh>().text = "Failed";
+        }
 	}
 }

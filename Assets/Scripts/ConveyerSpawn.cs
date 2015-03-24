@@ -4,22 +4,19 @@ using System.Collections;
 
 public class ConveyerSpawn : MonoBehaviour
 {
-    public enum ObjectType
-    {
-        TAKE,
-        GIVE,
-        NONE
-    }
-
     public Sprite[] spriteList;
-    public ObjectType[] spriteTypes;
-    public float spawnTime;   
+	public Transform [] spawnPoints; // Added
+    public float spawnTime;
+	public float whatever = 10.0f;
+	public Transform [] laneList;
+	public float conveyorSpeed; // Added
 
     float initialTime;
     
 	// Use this for initialization
 	void Start()
     {
+		SpawnItem (); // Added so I could debug more quickly
         initialTime = spawnTime;
 	}
 	
@@ -32,33 +29,29 @@ public class ConveyerSpawn : MonoBehaviour
         {
             SpawnItem();
             spawnTime = initialTime;
+
         }
 	}
 
     void SpawnItem()
     {
         int spriteIndex = (int)Random.Range(0, spriteList.Length);
-        
+		int spawnIndex = (int)Random.Range(0, spawnPoints.Length); // Added to randomly select index for spawn point
+
         GameObject newSprite = new GameObject();
 
         SpriteRenderer renderer = newSprite.AddComponent<SpriteRenderer>();
 
-        renderer.sprite = Sprite.Create(spriteList[spriteIndex].texture, spriteList[spriteIndex].rect, new Vector2(0,0));
-        newSprite.transform.position = transform.position;
+        renderer.sprite = Sprite.Create(spriteList[spriteIndex].texture, new Rect(0, 0, spriteList[spriteIndex].textureRect.width, spriteList[spriteIndex].textureRect.height), new Vector2(0,0));
+
+		newSprite.transform.position = spawnPoints [spawnIndex].position; // Adjusted to use spawnPoints array and random spawnIndex
+		
         newSprite.AddComponent<ConveyerObject>();
         newSprite.AddComponent<Rigidbody2D>();
-        newSprite.AddComponent<BoxCollider2D>();
-        newSprite.GetComponent<ConveyerObject>().objectType = spriteTypes[spriteIndex];
-        newSprite.GetComponent<ConveyerObject>().me = newSprite;
-        if (spriteIndex > 7)
-        {
-            newSprite.GetComponent<ConveyerObject>().isDangerous = true;
-            newSprite.GetComponent<ConveyerObject>().attentionValue = (int)Random.Range(5,10);
-        }
-        else
-        {
-            newSprite.GetComponent<ConveyerObject>().isDangerous = false;
-            newSprite.GetComponent<ConveyerObject>().attentionValue = (int)Random.Range(1, 6);
-        }
+        newSprite.AddComponent<BoxCollider2D>(); 
+		newSprite.layer = LayerMask.NameToLayer ("Conveyor "+ spawnIndex); // Added to set layer to that of the lane corresponding to the spawn index
+
+		// This is so that the object falls to the start lane before checking for nearest lane... this allows the spawn point to be above or on a higher conveyor without conflict
+		newSprite.GetComponent<ConveyerObject> ().nearestLane = spawnIndex;
     }    
 }
