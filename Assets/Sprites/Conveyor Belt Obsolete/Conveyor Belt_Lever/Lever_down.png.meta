@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Sprites/Baby/baby.png.meta
-guid: 19afafb18e245404fbe983207bc9c59c
-timeCreated: 1427164574
-=======
-guid: 78b135197516578489991350a259f400
+guid: 6c8e1b5f11822f54ead8a17d03aafa57
 timeCreated: 1427149856
->>>>>>> d080e0362a6c6aa7eddb4645dac0c03d6dadaa9f:Assets/Sprites/Baby/baby.png.meta
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}

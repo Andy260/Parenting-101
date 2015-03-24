@@ -9,7 +9,7 @@ public class Baby : MonoBehaviour
     //Is the baby holding a dangerous item
     public bool dangerousGoods = false;
     //Is the baby holding anything at all
-    bool anyGoods = false;
+    public bool anyGoods = false;
     //Whether or not the inspector is checking the baby for being hit
     bool checkingForHit = false;
     //A bool keeping track of whether or not the baby was hit
@@ -19,7 +19,7 @@ public class Baby : MonoBehaviour
     //A bool to control whether or not the baby is ocupied with an object 
     bool occupied = false;
     //The cool down time when a baby drops a good to prevent it from picking it up immediately 
-    uint coolDown = 0;
+    public uint coolDown = 3;
     //A Tick that counts down from sixty. The time stamp is fixed so this will reset evey second
     uint secondTick = 60;
     //The current goods the baby is holding (if any)
@@ -36,7 +36,7 @@ public class Baby : MonoBehaviour
         myAudio.volume = (float)sadness * 0.10f;
 
 	}
-    //The animation playing for the baby swiping a hazzard
+    //The animation playing for the baby swiping a hazzard 
     public void HitBaby()
     {
         sadness += 1;
@@ -44,14 +44,14 @@ public class Baby : MonoBehaviour
             babyGotHit = true;
         DropGoods();
     }
-	// Update is called once per frame
+	// Update is called once per frame for the baby
     public void Update() 
     {
         //Ticks once each second to begin to control events on a timer
         if (secondTick == 0)
         {
             //Whether or not the baby is in cool down and can hold an good
-            if (coolDown > 0)
+            if (coolDown == 0)
             {
                 //The baby is still intrested in the goods
                 if (atentionTick > 0)
@@ -101,16 +101,14 @@ public class Baby : MonoBehaviour
         coolDown = 3;
         return true;
     }
-    
     /// Checks whether or not the baby can hold an item, if so it holds it
     ///<param name="HoldItem">The item the baby will hold</param>
     public bool CanHold(ConveyerObject HoldItem)
     {
-
         if (anyGoods)
             return false;
-        if (sadness < HoldItem.attentionValue)
-            return false;
+        //if (sadness < HoldItem.attentionValue)
+          //  return false;
 
         dangerousGoods = HoldItem.isDangerous;
         anyGoods = true;
