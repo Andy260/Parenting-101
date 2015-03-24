@@ -114,6 +114,7 @@ public class ConveyerObject : MonoBehaviour
             Vector3 currentScreenPoint = new Vector3(0, Input.mousePosition.y, 0);
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + dragOffset;
             transform.position = currentPosition;
+            Debug.Log("Willies");
         }
     }
 }
