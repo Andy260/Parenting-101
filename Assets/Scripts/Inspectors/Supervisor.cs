@@ -23,9 +23,9 @@ public class Supervisor : Inspector {
 
         //TODO: Check object quota is met.
 
-        GameObject scoreCard = (GameObject)Instantiate(Resources.Load<GameObject>("ScoreCard"), gameObject.transform.position, Quaternion.identity);
-        scoreCard.GetComponent<ScoreCard>().lineText[0].GetComponent<TextMesh>().text = "Objects sorted correctly:";
-        scoreCard.GetComponent<ScoreCard>().lineText[1].GetComponent<TextMesh>().text = "Quota of " + quota.ToString() + " was met:";
+		GameObject scoreCard = (GameObject)Instantiate(Resources.Load<GameObject>("ScoreCard"), GameObject.Find("ScoreCardSpawnSpot").transform.position, Quaternion.identity);
+        scoreCard.GetComponent<ScoreCard>().lineText[0].GetComponent<TextMesh>().text = "Objects sorted:";
+        scoreCard.GetComponent<ScoreCard>().lineText[1].GetComponent<TextMesh>().text = "Quota of " + quota.ToString() + " met?";
 
         if (areObjectsCorrectlySorted)
         {

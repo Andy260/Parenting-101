@@ -37,5 +37,44 @@ public class OHSInspector : Inspector {
 		}
 
 		//Create score card.
+		GameObject scoreCard = (GameObject)Instantiate(Resources.Load<GameObject>("ScoreCard"), GameObject.Find("ScoreCardSpawnSpot").transform.position, Quaternion.identity);
+		scoreCard.GetComponent<ScoreCard>().lineText[0].GetComponent<TextMesh>().text = "Wires hanging?";
+		scoreCard.GetComponent<ScoreCard>().lineText[1].GetComponent<TextMesh>().text = "Conveyor smoking?";
+		scoreCard.GetComponent<ScoreCard>().lineText[2].GetComponent<TextMesh>().text = "Baby being loud?";
+		
+		if (!areWiresHanging)
+		{
+			//Player succeeded.
+			scoreCard.GetComponent<ScoreCard>().resultText[0].GetComponent<TextMesh>().text = "Completed";
+		}
+		else
+		{
+			//Player loses life.
+			scoreCard.GetComponent<ScoreCard>().resultText[0].GetComponent<TextMesh>().text = "Failed";
+		}
+		
+		if (!isConveyorSmoking)
+		{
+			//Player succeeded.
+			scoreCard.GetComponent<ScoreCard>().resultText[1].GetComponent<TextMesh>().text = "Completed";
+		}
+		else
+		{
+			//Player loses life.
+			scoreCard.GetComponent<ScoreCard>().resultText[1].GetComponent<TextMesh>().text = "Failed";
+		}
+		
+		if (!babyIsTooLoud)
+		{
+			//Player succeeded.
+			scoreCard.GetComponent<ScoreCard>().resultText[2].GetComponent<TextMesh>().text = "Completed";
+		}
+		else
+		{
+			//Player loses life.
+			scoreCard.GetComponent<ScoreCard>().resultText[2].GetComponent<TextMesh>().text = "Failed";
+		}
 	}
 }
+
+

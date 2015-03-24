@@ -40,10 +40,10 @@ public class WelfareInspector : Inspector {
 		}
 
 		//Create score card.
-        GameObject scoreCard = (GameObject)Instantiate(Resources.Load<GameObject>("ScoreCard"), gameObject.transform.position, Quaternion.identity);
-        scoreCard.GetComponent<ScoreCard>().lineText[0].GetComponent<TextMesh>().text = "Baby holding anything dangerous?";
-        scoreCard.GetComponent<ScoreCard>().lineText[1].GetComponent<TextMesh>().text = "Child harmed at all?";
-        scoreCard.GetComponent<ScoreCard>().lineText[2].GetComponent<TextMesh>().text = "Baby being really loud?";
+        GameObject scoreCard = (GameObject)Instantiate(Resources.Load<GameObject>("ScoreCard"), GameObject.Find("ScoreCardSpawnSpot").transform.position, Quaternion.identity);
+        scoreCard.GetComponent<ScoreCard>().lineText[0].GetComponent<TextMesh>().text = "Dangerous?";
+        scoreCard.GetComponent<ScoreCard>().lineText[1].GetComponent<TextMesh>().text = "Child hurt?";
+        scoreCard.GetComponent<ScoreCard>().lineText[2].GetComponent<TextMesh>().text = "Baby being loud?";
 
         if (!isBabyHoldingHazard)
         {
