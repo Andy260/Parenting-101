@@ -33,8 +33,7 @@ public class Baby : MonoBehaviour
     //Use this for initialization
     void Start() 
     {
-        GameObject thisBaby = GameObject.Find("Baby");
-        myAudio = thisBaby.GetComponent<AudioSource>();
+        myAudio = gameObject.GetComponent<AudioSource>();
         myAudio.volume = (float)sadness * 0.10f;
 
 	}
