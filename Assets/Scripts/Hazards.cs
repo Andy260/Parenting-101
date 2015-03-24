@@ -3,6 +3,11 @@ using System.Collections;
 
 public class Hazards : MonoBehaviour 
 {
+	// Baby 
+	public GameObject _baby;
+	public int _babySadnessTrigger;
+	Baby _babyScript;
+
 	// Hazards activation
 	public float _wiresFrequency;			// Frequency of the wires hazard
 	public float _wiresFrequencyChange; 	// Deducts timer within this range
@@ -38,13 +43,16 @@ public class Hazards : MonoBehaviour
             StartWiresHazard();
         else
             StopWiresHazard();
+
+		_babyScript = _baby.GetComponent<Baby> ();
 	}
 
 	void Update () 
     {
 		float wiresOffset = Random.Range(0, _wiresFrequencyChange);
 
-		if (_wiresEventTimer + wiresOffset > _wiresFrequency)
+		if (_wiresEventTimer + wiresOffset > _wiresFrequency &&
+		    _babyScript.sadness > _babySadnessTrigger)
 		{
 			// Activate hazard / deactivate hazard
 			if (_wiresActivated)
