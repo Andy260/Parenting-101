@@ -16,19 +16,21 @@ public class Baby : MonoBehaviour
     public bool babyGotHit = false;
     //A tick set to the atention value of goods, this controls how long he plays with the good
     uint atentionTick = 0;
-    //A bool to control whether or not the baby is ocupied with an object 
-    bool occupied = false;
     //The cool down time when a baby drops a good to prevent it from picking it up immediately 
     public uint coolDown = 3;
     //A Tick that counts down from sixty. The time stamp is fixed so this will reset evey second
     uint secondTick = 60;
     //The current goods the baby is holding (if any)
-    ConveyerObject CurrentGoods;
+    ConveyerObject CurrentGoods = null;
+    //The old object he was holding 
+    ConveyerObject OldGoods = null;
     //A reference to the audio component of the baby
     AudioSource myAudio;
-    // Use this for initialization
+    //Gets the Right Hands position
+    public GameObject handRight;
     #endregion
     #region Functions
+    //Use this for initialization
     void Start() 
     {
         GameObject thisBaby = GameObject.Find("Baby");
@@ -61,11 +63,8 @@ public class Baby : MonoBehaviour
                         sadness -= 1;
                 }
                 //The baby is not intrested in the good but does have goods to drop
-                else if (occupied)
-                {
-                    DropGoods();
-                    occupied = false;
-                }
+                else if(DropGoods())
+                    coolDown = 3;
                 //Slowly has a chance increases the babys sadness each second
                 else
                     if (1 == (uint)Random.Range(0, 5))
@@ -92,13 +91,15 @@ public class Baby : MonoBehaviour
     {
         if (CurrentGoods == null)
             return false;
+        if (!anyGoods)
+            return false;
         //Removes collisions and physics from box
         CurrentGoods.me.AddComponent<Rigidbody2D>();
         CurrentGoods.me.AddComponent<BoxCollider2D>();
         dangerousGoods = false;
         anyGoods = false;
         CurrentGoods.babyMovement = true;
-        coolDown = 3;
+        OldGoods = CurrentGoods;
         return true;
     }
     /// Checks whether or not the baby can hold an item, if so it holds it
@@ -109,12 +110,13 @@ public class Baby : MonoBehaviour
             return false;
         //if (sadness < HoldItem.attentionValue)
           //  return false;
-
+        if (CurrentGoods == OldGoods && CurrentGoods != null)
+            return false;
         dangerousGoods = HoldItem.isDangerous;
         anyGoods = true;
         atentionTick = (uint)HoldItem.attentionValue;
-        Vector3 offSet = new Vector3(00,0,0);
-        HoldItem.transform.position = (this.transform.position + offSet);
+
+        HoldItem.transform.position = (handRight.transform.position);
 
         Rigidbody2D blah = HoldItem.me.GetComponent<Rigidbody2D>();
         Destroy(blah);
@@ -122,7 +124,6 @@ public class Baby : MonoBehaviour
         Destroy(bloh);
         CurrentGoods = HoldItem;
         CurrentGoods.babyMovement = false;
-        occupied = true;
         return true;
     }
     //Begins checking whether or not the baby is hit
