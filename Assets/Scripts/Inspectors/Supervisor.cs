@@ -35,6 +35,7 @@ public class Supervisor : Inspector {
         else
         {
             //Player loses life.
+			GameObject.Find("InspectorSpawner").GetComponent<LifeManager>().LoseSupervisorLife();
             scoreCard.GetComponent<ScoreCard>().resultText[0].GetComponent<TextMesh>().text = "Failed";
         }
 
@@ -46,6 +47,7 @@ public class Supervisor : Inspector {
         else
         {
             //Player loses life.
+			GameObject.Find("InspectorSpawner").GetComponent<LifeManager>().LoseSupervisorLife();
             scoreCard.GetComponent<ScoreCard>().resultText[1].GetComponent<TextMesh>().text = "Failed";
         }
 	}

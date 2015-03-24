@@ -50,6 +50,7 @@ public class OHSInspector : Inspector {
 		else
 		{
 			//Player loses life.
+			GameObject.Find("InspectorSpawner").GetComponent<LifeManager>().LoseOHSLife();
 			scoreCard.GetComponent<ScoreCard>().resultText[0].GetComponent<TextMesh>().text = "Failed";
 		}
 		
@@ -61,6 +62,7 @@ public class OHSInspector : Inspector {
 		else
 		{
 			//Player loses life.
+			GameObject.Find("InspectorSpawner").GetComponent<LifeManager>().LoseOHSLife();
 			scoreCard.GetComponent<ScoreCard>().resultText[1].GetComponent<TextMesh>().text = "Failed";
 		}
 		
@@ -72,6 +74,7 @@ public class OHSInspector : Inspector {
 		else
 		{
 			//Player loses life.
+			GameObject.Find("InspectorSpawner").GetComponent<LifeManager>().LoseOHSLife();
 			scoreCard.GetComponent<ScoreCard>().resultText[2].GetComponent<TextMesh>().text = "Failed";
 		}
 	}

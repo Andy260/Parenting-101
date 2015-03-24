@@ -4,7 +4,7 @@ using System.Collections;
 
 public class GamescoreManager : MonoBehaviour 
 {
-	public Text _highscoreDisplay;
+	public GameObject _highscoreDisplay;
 	public int _score;
 
 	void Start () 
@@ -15,7 +15,7 @@ public class GamescoreManager : MonoBehaviour
 	void Update () 
 	{
 		// Update score display
-		_highscoreDisplay.text = "Score: " + _score.ToString ();
+		_highscoreDisplay.GetComponent<TextMesh>().text = "Score: " + _score.ToString ();
 	}
 
 	public void AddScore(int a_score)

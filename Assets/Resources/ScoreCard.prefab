@@ -360,7 +360,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146514}
-  m_Text: First Parameter
+  m_Text: 
   m_OffsetZ: -1
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -381,7 +381,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107274}
-  m_Text: Third Parameter
+  m_Text: 
   m_OffsetZ: -1
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -402,7 +402,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108056}
-  m_Text: Result 2
+  m_Text: 
   m_OffsetZ: -1
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -423,7 +423,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196404}
-  m_Text: Second Parameter
+  m_Text: 
   m_OffsetZ: -1
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -444,7 +444,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128336}
-  m_Text: Result 1
+  m_Text: 
   m_OffsetZ: -1
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -465,7 +465,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126228}
-  m_Text: Result 3
+  m_Text: 
   m_OffsetZ: -1
   m_CharacterSize: 1
   m_LineSpacing: 1
