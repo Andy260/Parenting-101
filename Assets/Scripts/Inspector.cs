@@ -14,8 +14,6 @@ public abstract class Inspector : MonoBehaviour {
 
 	protected void UpdateTimer()
 	{
-		Debug.Log (timeToAssess);
-		Debug.Log (assessingCompleted);
 		if(timeToAssess > 0 & !assessingCompleted)
 		{
 			timeToAssess -= Time.deltaTime;

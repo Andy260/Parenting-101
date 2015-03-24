@@ -33,7 +33,6 @@ public class ConveyorMove : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		Debug.Log ("got trigger");
 		if (other.gameObject == sender) 
 		{
 			transform.position = receiver.transform.position;
